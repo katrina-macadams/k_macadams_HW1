@@ -1,0 +1,38 @@
+#hero-intro {
+    margin-top: 200px;
+}
+
+.btn {   
+    text-transform: uppercase;
+}  
+    
+.btn:hover .btn-slide-show-text1 {  
+    margin-left: 65px;
+}  
+    
+.btn-shadow-drop {  
+    position: relative;  
+    margin-top: 10%;   
+    background: #B50000;  
+    padding: 20px;  
+    font-size: 16px;  
+    font-weight: 700;   
+    transition: 0.2s ease-in-out;  
+    left: 0px;  
+    top: 0px;  
+    width: 180px;
+    cursor: pointer;
+}  
+    
+.btn-shadow-drop:hover {  
+        left: 4px;  
+        top: 4px;  
+        box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+    } 
+        
+        
+.btn-shadow-drop--black {  
+        border: 1px solid rgb(51, 51, 51);  
+        color: white;  
+        box-shadow: rgb(51, 51, 51) 4px 4px 0px 0px; 
+    }  
