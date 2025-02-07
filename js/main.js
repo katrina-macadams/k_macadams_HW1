@@ -19,7 +19,7 @@
                 const cardBackground = document.createElement('div');
                 cardBackground.classList.add('card-background');
                 const charId = character.url.split('/')[5];
-                console.log(charId);
+                // console.log(charId);
                 cardBackground.style.backgroundImage = `url(../images/${charId}.jpg)`;
                 const cardContent = document.createElement('div');
                 cardContent.classList.add('card-content');
@@ -56,9 +56,16 @@
             fetch(filmUrl)
             .then(response => response.json())
             .then(function(film){
+                console.log(film);
                 const clone = movieTemplate.content.cloneNode(true);
                 const movieCrawl = clone.querySelector('.crawl');
                 const movieTitle = clone.querySelector('.title');
+                const posterBackground = clone.querySelector('.poster');
+                const filmId = film.episode_id;
+                posterBackground.style.backgroundImage = `url(../images/${filmId}.png)`;
+                const cardContent = document.createElement('div');
+                cardContent.classList.add('card-content');
+
                 movieCrawl.innerHTML = film.opening_crawl;
                 movieTitle.innerHTML = film.title;
                 movieCon.appendChild(clone);
