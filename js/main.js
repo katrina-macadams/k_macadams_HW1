@@ -70,6 +70,10 @@
                 movieCon.appendChild(clone);
 
                 gsap.to(window, {duration: 1, scrollTo: {y: "#movies-sec", offsetY: 100}});
+
+                posterBackground.addEventListener("click", function() {
+                    posterBackground.classList.toggle("active");
+                });
             })
             .catch(function(err){
                 movieCon.innerHTML = "<p>Something went wrong</p>";
@@ -87,7 +91,6 @@
     gsap.registerPlugin(ScrollToPlugin);
 
     const navLinks = document.querySelectorAll("#button");
-    const cardLinks = document.querySelectorAll("card-grid a");
 
 
     function scrollLink(e) {    
@@ -105,7 +108,6 @@
             trigger: "#button",
             //onEnter onLeave onEnterBack onLeaveBack
             toggleActions: "restart none reverse none",
-            markers: true,
             // animation box start, scroller start
             start: "top center",
             // animatiom box end, scroller end
@@ -116,4 +118,11 @@
     )
 
   
+})();
+
+(() => {
+    gsap.registerPlugin(ScrambleTextPlugin);
+
+    const tl = gsap.timeline();
+    tl.to("#hero-subtitle",{duration: 3, scrambleText: {text: "THE FORCE INDEX: CHARACTERS OF THE GALAXY", chars: "0 1 X Y Z Ξ K T Ω Σ ⌁ ⌬ ⚙ ⏣", revealDelay: 0.5, ease: "back.out"}});
 })();
