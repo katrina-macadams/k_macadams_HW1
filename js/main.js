@@ -1,3 +1,11 @@
+
+// TABLE OF CONTENTS
+// 1. AJAX CALLS
+// 2. SCROLL TRIGGER
+// 3. SCRAMBLE TEXT
+
+
+// AJAX CALLS
 (() => {
     const baseUrl = "https://swapi.dev/api/";
     const cardGrid = document.querySelector('.card-grid');
@@ -85,6 +93,8 @@
     getChar();
 })();
 
+// SCROLL TRIGGER
+
 (() => {
 
     gsap.registerPlugin(ScrollTrigger);
@@ -106,11 +116,8 @@
     gsap.to(".card-wrapper", .5,
         {scrollTrigger: {
             trigger: "#button",
-            //onEnter onLeave onEnterBack onLeaveBack
             toggleActions: "restart none reverse none",
-            // animation box start, scroller start
             start: "top center",
-            // animatiom box end, scroller end
             end: "bottom center"
         }, ease:Bounce.easeOut
 
@@ -120,6 +127,7 @@
   
 })();
 
+// SCRAMBLE TEXT
 (() => {
     gsap.registerPlugin(ScrambleTextPlugin);
 
