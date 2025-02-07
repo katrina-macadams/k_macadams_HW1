@@ -1,5 +1,5 @@
 #hero-intro {
-    margin-top: 200px;
+    margin: 200px 24px 0 24px;
 }
 
 .btn {   
@@ -13,7 +13,7 @@
 .btn-shadow-drop {  
     position: relative;  
     margin-top: 10%;   
-    background: #B50000;  
+    background: black;  
     padding: 20px;  
     font-size: 16px;  
     font-weight: 700;   
@@ -26,12 +26,13 @@
 .btn-shadow-drop:active {  
         left: 4px;  
         top: 4px;  
-        box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+        color: rgb(194, 10, 10) ;
+        box-shadow: rgb(194, 10, 10) 0px 0px 0px 0px;
     } 
         
         
 .btn-shadow-drop--black {  
         border: 1px solid rgb(51, 51, 51);  
         color: white;  
-        box-shadow: rgb(51, 51, 51) 4px 4px 0px 0px; 
+        box-shadow: rgb(255, 255, 255) 4px 4px 0px 0px; 
     }  

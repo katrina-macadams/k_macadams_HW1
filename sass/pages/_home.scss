@@ -1,5 +1,4 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: black;
@@ -8,8 +7,19 @@ body {
 
 header {
     background-image: url('../images/hero-star.jpg');
-    background-size: contain;
+    background-size: cover;
     height: 100vh;
+    width: 100vw;
+}
+
+@media (max-width: 1080px) {
+    header {
+        background-image: url('../images/hero-star-m.jpg');
+    }
+}
+
+.section-subtitle {
+    margin: 0 14px;
 }
 
 
