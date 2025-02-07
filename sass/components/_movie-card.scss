@@ -1,19 +1,14 @@
-.crawl {
-    margin-bottom: 28px;
-    width: 250px;
-    height: 48px;
-    background-color: red;
-}
-
 .poster {
     margin-bottom: 28px;
-    background-color: grey;
+    background-color: rgb(226, 9, 9);
     height: 500px;
     width: 250px;
+    padding: 24px;
+    
 }
 
-.description {
-    width: 250px;
-    height: 120px;
+.crawl {
     background-color: rgb(50, 50, 50);
+    padding: 24px;
+    text-align: center;
 }

@@ -27,80 +27,21 @@
     <section>
       <div class="card-wrapper">
         <div class="card-grid grid-con">
-          <a class="card col-span-2 m-col-span-3" href="#">
-            <div class="card-background"></div>
-            <div class="card-content">
-              <h3 class="card-name">Name of Character</h3>
-            </div>
-          </a>
-          <a class="card col-span-2 m-col-span-3" href="#">
-            <div class="card-background"></div>
-            <div class="card-content">
-              <h3 class="card-name">Name of Character</h3>
-            </div>
-          </a>
-          <a class="card col-span-2 m-col-span-3" href="#">
-            <div class="card-background"></div>
-            <div class="card-content">
-              <h3 class="card-name">Name of Character</h3>
-            </div>
-          </a>
-          <a class="card col-span-2 m-col-span-3" href="#">
-            <div class="card-background"></div>
-            <div class="card-content">
-              <h3 class="card-name">Name of Character</h3>
-            </div>
-          </a>
-          <a class="card col-span-2 m-col-span-3" href="#">
-            <div class="card-background"></div>
-            <div class="card-content">
-              <h3 class="card-name">Name of Character</h3>
-            </div>
-          </a>
-          <a class="card col-span-2 m-col-span-3" href="#">
-            <div class="card-background"></div>
-            <div class="card-content">
-              <h3 class="card-name">Name of Character</h3>
-            </div>
-          </a>
-          <a class="card col-span-2 m-col-span-3" href="#">
-            <div class="card-background"></div>
-            <div class="card-content">
-              <h3 class="card-name">Name of Character</h3>
-            </div>
-          </a>
-          <a class="card col-span-2 m-col-span-3" href="#">
-            <div class="card-background"></div>
-            <div class="card-content">
-              <h3 class="card-name">Name of Character</h3>
-            </div>
-          </a>
-          <a class="card col-span-2 m-col-span-3" href="#">
-            <div class="card-background"></div>
-            <div class="card-content">
-              <h3 class="card-name">Name of Character</h3>
-            </div>
-          </a>
-          <a class="card col-span-2 m-col-span-3" href="#">
-            <div class="card-background"></div>
-            <div class="card-content">
-              <h3 class="card-name">Name of Character</h3>
-            </div>
-          </a>
+          <!-- Cards will be dynamically inserted here -->
         </div>
       </div>
     </section>
 
+  
     <!-- Movies -->
-    <section>
-      <div class="grid-con">
-        <div class="col-span-3">
-          <div class="m-cards">
-            <div class="crawl"></div>
-            <div class="poster"></div>
-            <p class="description">placeholder</p>
+    <section id="movies-sec">
+      <div id="movie-con" class="grid-con">
+        <template id="movie-template">
+          <div class="poster col-span-3">
+            <h2 class="title"></h2>
+            <p class="crawl"></p>
           </div>
-        </div>
+        </template>
       </div>
     </section>
   </body>

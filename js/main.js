@@ -1,64 +1,74 @@
 (() => {
-    const movieBox = document.querySelector('#movie-box');
-    const reviewTemplate = document.querySelector('#review-template');
-    const reviewCon = document.querySelector('#review-con');
-    const baseUrl = "https://search.imdbot.workers.dev";
+    const baseUrl = "https://swapi.dev/api/";
+    const cardGrid = document.querySelector('.card-grid');
+    const movieTemplate = document.querySelector('#movie-template');
+    const movieCon = document.querySelector('#movie-con');
 
-    function getMovies() {
-        fetch(`${baseUrl}?q=terminator`)
+    function getChar() {
+        fetch(`${baseUrl}people/`)
         .then(response => response.json())
-        // fetch json string and then take the response and convert it to json object
         .then(function(response){
             console.log(response);
-            const movies = response.description;
-            const ul = document.createElement('ul');
-            movies.forEach(movie => {
-                const li = document.createElement('li');
-                const a =document.createElement('a');
-                a.textContent = movie["#TITLE"];
-                a.dataset.review = movie["#IMDB_ID"];
-                li.appendChild(a);
-                ul.appendChild(li);
-            })
-            movieBox.appendChild(ul);
+            const characters = response.results;
+            characters.forEach(character => {
+                const card = document.createElement('a');
+                card.classList.add('card', 'col-span-2', 'm-col-span-3');
+                card.href = '#';
+                card.dataset.films = character.films.join(',');
+
+                const cardBackground = document.createElement('div');
+                cardBackground.classList.add('card-background');
+                const charId = character.url.split('/')[5];
+                console.log(charId);
+                cardBackground.style.backgroundImage = `url(../images/${charId}.jpg)`;
+                const cardContent = document.createElement('div');
+                cardContent.classList.add('card-content');
+
+                const cardName = document.createElement('h3');
+                cardName.classList.add('card-name');
+                cardName.textContent = character.name;
+
+                cardContent.appendChild(cardName);
+                card.appendChild(cardBackground);
+                card.appendChild(cardContent);
+                cardGrid.appendChild(card);
+            });
         })
         .then(function(){
-            const links = document.querySelectorAll("#movie-box li a");
+            const links = document.querySelectorAll('.card-grid a');
             links.forEach(function(link){
-                link.addEventListener("click", getReview)
-            })
-        })
-        .catch(function(err) {
-            console.log(err);
-        })
-    }
+                link.addEventListener("click", getFilm);
 
-    function getReview(e) {
-        // console.log("Review Called");
-        // console.log(e.currentTarget.dataset.review);
-        const reviewID = e.currentTarget.dataset.review;
-        fetch(`${baseUrl}?tt=${reviewID}`)
-        .then(response => response.json())
-        .then(function(response){
-            console.log(response.short.review.reviewBody);
-            reviewCon.innerHTML = "";
-            const clone = reviewTemplate.content.cloneNode(true);
-            const reviewDescription = clone.querySelector(".review-description");
-            reviewDescription.innerHTML = response.short.review.reviewBody;
-            reviewCon.appendChild(clone);
+            });
         })
-        .catch(function(err) {
-            reviewCon.innerHTML = "<p>No review found</p>";
-            console.log(err);
+        .catch(function(err){
+            console.error('Error fetching characters:', err);
         });
     }
-    
-    // object.aka (no pound sign)
-    // object[#aka] (with pound sign)
-    
-    // for homework include spinners
-    // for home name images with numbers (6.jpg) because the api uses nubers for their unique id's so that would just make it easier
-    
-    getMovies();
 
+
+    function getFilm(e) {
+        e.preventDefault();
+        const filmUrls = e.currentTarget.dataset.films.split(',');
+        movieCon.innerHTML = ''; 
+
+        filmUrls.forEach(filmUrl => {
+            fetch(filmUrl)
+            .then(response => response.json())
+            .then(function(film){
+                const clone = movieTemplate.content.cloneNode(true);
+                const movieCrawl = clone.querySelector('.crawl');
+                const movieTitle = clone.querySelector('.title');
+                movieCrawl.innerHTML = film.opening_crawl;
+                movieTitle.innerHTML = film.title;
+                movieCon.appendChild(clone);
+            })
+            .catch(function(err){
+                movieCon.innerHTML = "<p>Something went wrong</p>";
+                console.error('Error fetching film:', err);
+            });
+        });
+    }
+
+    getChar();
 })();

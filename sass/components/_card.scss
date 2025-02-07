@@ -6,7 +6,6 @@
 .card {
     list-style: none;
     position: relative;
-    background-image: url(../images/placeholder.jpg);
     border-radius: 10px;
     background-size: cover;
     transition: filter 200ms linear;
@@ -30,11 +29,14 @@
     transform-origin: center;
     transform: scale(1) translateZ(0);
     transition: filter 200ms linear, transform 200ms linear;
+    background-position: center;
+    background-size:cover;
 }
 
 .card:hover .card-background {
     filter: brightness(1) saturate(1) contrast(1);
     transform: scale(1.05);
+    z-index: 10; 
 }
 
 .card-wrapper:hover .card:not(:hover) {
