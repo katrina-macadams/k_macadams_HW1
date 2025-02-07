@@ -6,7 +6,7 @@
     text-transform: uppercase;
 }  
     
-.btn:hover .btn-slide-show-text1 {  
+.btn:active .btn-slide-show-text1 {  
     margin-left: 65px;
 }  
     
@@ -23,7 +23,7 @@
     width: 180px;
 }  
     
-.btn-shadow-drop:hover {  
+.btn-shadow-drop:active {  
         left: 4px;  
         top: 4px;  
         box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
