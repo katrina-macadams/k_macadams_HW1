@@ -2,28 +2,76 @@
     position: relative;
     margin-bottom: 28px;
     height: 500px;
-    width: 300px; 
+    width: 300px;
     background-position: center;
     background-size: cover;
-    overflow: hidden; 
+    overflow: hidden;
+}
+
+.poster::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1; /* Ensure the overlay is above the poster but below the crawl text */
+}
+
+.poster:hover::before {
+    opacity: 1;
 }
 
 .crawl {
     position: absolute;
-    bottom: 0;
+    top: 0; /* Start from the top of the poster */
     left: 0;
     width: 100%;
-    background-color: rgba(50, 50, 50, 0.8); 
-    color: white;
+    height: 100%; /* Cover the entire height of the poster */
+    background-color: rgba(0, 0, 0, 0.85);
     padding: 24px;
-    text-align: center;
+    text-align: justify;
     font-size: 14px;
     opacity: 0;
-    transition: opacity 0.3s ease; 
+    transition: opacity 0.3s ease;
+    z-index: 2; /* Ensure the crawl text is above the overlay */
+    perspective: 500px; /* Apply perspective to the parent container */
+    overflow: hidden; /* Hide overflow */
+}
+
+.crawl-text {
+    color: #feda4a;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    transform-origin: 50% 100%;
+    animation: crawl 15s linear;
+    animation-play-state: paused; 
+    position: absolute; /* Ensure the text is positioned absolutely */
+    top: 100%; /* Start from the bottom */
+    width: 100%;
+}
+
+@keyframes crawl {
+    0% {
+        top: 100%;
+        transform: rotateX(20deg) translateZ(0);
+    }
+    100% {
+        top: 0;
+        transform: rotateX(20deg) translateZ(0);
+    }
 }
 
 .poster:hover .crawl {
-    opacity: 1; 
+    opacity: 1;
+}
+
+.poster:hover .crawl-text {
+    animation-play-state: running; /* Resume animation on hover */
 }
 
 .movie-card {
