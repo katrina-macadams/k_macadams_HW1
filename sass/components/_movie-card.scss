@@ -1,3 +1,11 @@
+.poster {
+    position: relative;
+    margin-bottom: 28px;
+    height: 500px;
+    width: 300px;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
 }
 
 .poster::before {
@@ -15,40 +23,23 @@
 
 .poster:hover::before {
     opacity: 1;
-
-
-    top: 0; /* Start from the top of the poster */
-    left: 0;
-    width: 100%;
-    height: 100%; /* Cover the entire height of the poster */
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.85));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2; 
-}
-
-.poster:hover::before {
-    opacity: 1;
 }
 
 .crawl {
     position: absolute;
-    top: 0; 
+    top: 0; /* Start from the top of the poster */
+    left: 0;
     width: 100%;
-    height: 100%; 
+    height: 100%; /* Cover the entire height of the poster */
     background-color: rgba(0, 0, 0, 0.85);
     padding: 24px;
     text-align: justify;
     font-size: 14px;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 2; 
-    perspective: 500px; 
-    overflow: hidden; 
-
+    z-index: 2; /* Ensure the crawl text is above the overlay */
+    perspective: 500px; /* Apply perspective to the parent container */
+    overflow: hidden; /* Hide overflow */
 }
 
 .crawl-text {
@@ -57,27 +48,19 @@
     font-weight: 600;
     font-size: 18px;
     transform-origin: 50% 100%;
-    animation: crawl 15s linear;
-    animation-play-state: paused; 
-    position: absolute; /* Ensure the text is positioned absolutely */
-    top: 100%; /* Start from the bottom */
-    padding: 18px;
-    transform-origin: 50% 100%;
-    animation: crawl 30s linear;
+    animation: crawl 15s linear infinite;
     animation-play-state: paused; 
     position: absolute; 
     top: 100%; 
-
-    width: 100%;
 }
 
 @keyframes crawl {
     0% {
-        top: 100px;
-        transform: rotateX(20deg) translateZ(0);
+        top: 600px;
+        transform: rotateX(15deg) translateZ(0);
     }
     100% {
-        top: 500px;
+        top: -400px;
         transform: rotateX(20deg) translateZ(0);
     }
 }
@@ -87,7 +70,7 @@
 }
 
 .poster:hover .crawl-text {
-    animation-play-state: running; 
+    animation-play-state: running; /* Resume animation on hover */
 }
 
 #movie-con {
