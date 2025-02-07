@@ -56,12 +56,12 @@
             .then(response => response.json())
             .then(function(film){
                 const clone = movieTemplate.content.cloneNode(true);
-                const movieCrawl = clone.querySelector('.crawl');
+                const movieCrawl = clone.querySelector('.crawl-text');
                 const movieTitle = clone.querySelector('.title');
                 const posterBackground = clone.querySelector('.poster');
                 const filmId = film.episode_id;
                 // console.log(`Film ID: ${filmId}`);
-                posterBackground.style.backgroundImage = `url(../images/${filmId}.jpg)`;
+                posterBackground.style.backgroundImage = `url(../images/${filmId}.png)`;
                 const cardContent = document.createElement('div');
                 cardContent.classList.add('card-content');
 
