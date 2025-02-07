@@ -1,14 +1,41 @@
 .poster {
+    position: relative;
     margin-bottom: 28px;
-    background-color: rgb(226, 9, 9);
     height: 500px;
-    width: 250px;
-    padding: 24px;
-    
+    width: 300px; 
+    background-position: center;
+    background-size: cover;
+    overflow: hidden; 
 }
 
 .crawl {
-    background-color: rgb(50, 50, 50);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(50, 50, 50, 0.8); 
+    color: white;
     padding: 24px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease; 
+}
+
+.poster:hover .crawl {
+    opacity: 1; 
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px; 
+    width: 320px; 
+}
+
+.title {
+    margin-bottom: 10px;
+    font-size: 18px;
     text-align: center;
 }
