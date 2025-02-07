@@ -1,7 +1,7 @@
     to do
 - loading thing (20min)
 - pretty up page (1hr)
-- add greensock enhancements (SCROLL TRIGGERS) (1hr) 
+- add greensock enhancements (SCROLL TRIGGERS) (wookie text change?) (1hr) 
 - review assignment deliverables (15min)
 - Submit before 5pm (15min)
 

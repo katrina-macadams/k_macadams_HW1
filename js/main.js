@@ -38,7 +38,6 @@
             const links = document.querySelectorAll('.card-grid a');
             links.forEach(function(link){
                 link.addEventListener("click", getFilm);
-
             });
         })
         .catch(function(err){
@@ -56,19 +55,21 @@
             fetch(filmUrl)
             .then(response => response.json())
             .then(function(film){
-                console.log(film);
                 const clone = movieTemplate.content.cloneNode(true);
                 const movieCrawl = clone.querySelector('.crawl');
                 const movieTitle = clone.querySelector('.title');
                 const posterBackground = clone.querySelector('.poster');
                 const filmId = film.episode_id;
-                posterBackground.style.backgroundImage = `url(../images/${filmId}.png)`;
+                // console.log(`Film ID: ${filmId}`);
+                posterBackground.style.backgroundImage = `url(../images/${filmId}.jpg)`;
                 const cardContent = document.createElement('div');
                 cardContent.classList.add('card-content');
 
                 movieCrawl.innerHTML = film.opening_crawl;
                 movieTitle.innerHTML = film.title;
                 movieCon.appendChild(clone);
+
+                gsap.to(window, {duration: 1, scrollTo: {y: "#movies-sec", offsetY: 100}});
             })
             .catch(function(err){
                 movieCon.innerHTML = "<p>Something went wrong</p>";
@@ -78,4 +79,41 @@
     }
 
     getChar();
+})();
+
+(() => {
+
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollToPlugin);
+
+    const navLinks = document.querySelectorAll("#button");
+    const cardLinks = document.querySelectorAll("card-grid a");
+
+
+    function scrollLink(e) {    
+            e.preventDefault(); 
+            let selectedLink = (".card-wrapper");
+            gsap.to(window, {duration: 1, scrollTo:{y:`${selectedLink}`, offsetY:100 }});
+    }
+
+    navLinks.forEach((link) => {
+        link.addEventListener("click", scrollLink);
+    });
+
+    gsap.to(".card-wrapper", .5,
+        {scrollTrigger: {
+            trigger: "#button",
+            //onEnter onLeave onEnterBack onLeaveBack
+            toggleActions: "restart none reverse none",
+            markers: true,
+            // animation box start, scroller start
+            start: "top center",
+            // animatiom box end, scroller end
+            end: "bottom center"
+        }, ease:Bounce.easeOut
+
+        }
+    )
+
+  
 })();
