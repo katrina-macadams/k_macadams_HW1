@@ -1,4 +1,4 @@
-![TBD](images/)
+![Darth Vader Scene](images/vader.gif)
 
 # AJAX Redux - Star Wars API Character/Movie Guide
 ---
@@ -34,10 +34,18 @@ There is no complex installation process; simply clone the repository to your lo
     - Initial folder/file structure created.
 
 - **v1.1.0 - 2025, January 25th**  
+    Boxing Out the Website
+    - Added Cards
+
+- **v1.2.0 - 2025, Feburary 7th**  
+   Styling and Populating
+    - Added Images, Styling, and Populated with API
+    - Made Calls to AJAX
+    - Made Responsive
     
 
 > [!NOTE]
-> This project is currently a Work In Progress (WIP). Features may change, and new ones will be added as development continues.
+> This project is finished, however, future alterations are possible. 
 
 ## Contributing
 1. Fork it!
@@ -49,7 +57,6 @@ There is no complex installation process; simply clone the repository to your lo
 ## Credits
 **Development and Design**  
 Katrina MacAdams  
-katrinamacadams@gmail.com
 
 > *Additional Aid Provided By:*  
 Professors at Fanshawe College
@@ -62,7 +69,9 @@ Professors at Fanshawe College
 - Fetch API for AJAX requests.
 
 **Image Sources**  
-Movie posters sourced manually and stored in the `images` folder.
+Movie Posters: RedHeadJedi at https://theposterdb.com/set/1826 
+Character Posters: MMASportsWall1982 at https://www.deviantart.com/mmasportwall1982/gallery?q=obi
+
 
 ## License
 MIT
